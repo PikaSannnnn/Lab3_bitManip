@@ -28,7 +28,7 @@ int main(void) {
         // Seatbelt Light
         if ((seat & 0x10) && (seat & 0x20) && !(seat & 0x40)) { // key && seated && seatbelt not fastened
             tmpC = tmpC | 0x80;        
-	}
+	    }
 
 	    tmpA = tmpA & 0x0F;
         // Fuel Gauge
