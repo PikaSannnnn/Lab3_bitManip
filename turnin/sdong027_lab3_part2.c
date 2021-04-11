@@ -22,12 +22,6 @@ int main(void) {
     	tmpA = PINA & 0x0F;
         tmpC = 0x00;
 
-        // Seatbelt Light
-        if ((tmpA & 0x10) && (tmpA & 0x20) && !(tmpA & 0x40)) { // key && seated && seatbelt not fastened
-            tmpC = tmpC | 0x80;
-        }
-
-        // Fuel Gauge
         if (tmpA >= 13) {   // 13 - 15
             tmpC = tmpC | 0x3F; // PC5 - PC0
         }
