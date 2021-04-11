@@ -19,7 +19,7 @@ int main(void) {
 	unsigned char tmpB = 0x00;
 
 	while(1) {
-    	input = PINA & 0xFF;
+    	input = PIND & 0xFF;
         input = (input << 1) | (PINB & 0x01);
         tmpB = 0x00;
 
