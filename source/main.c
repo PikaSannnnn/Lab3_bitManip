@@ -13,19 +13,20 @@
 #endif
 
 int main(void) {
-    DDRA = 0x00; PORTA = 0xFF; // Configure port A's 8 pins as inputs
-    DDRB = 0x00; PORTB = 0xFF; // Configure port A's 8 pins as inputs
+	DDRA = 0x00; PORTA = 0xFF; // Configure port A's 8 pins as inputs
+	DDRB = 0x00; PORTB = 0xFF; // Configure port A's 8 pins as inputs
 	DDRC = 0xFF; PORTC = 0x00; // Configure port B's 8 pins as outputs, initialize to 0s
 	unsigned char tmpA = 0x00;
 	unsigned char tmpB = 0x00;
 	unsigned char tmpC = 0x00;
+	unsigned char i = 0x00;
 
 	while(1) {
-		tmpA = PINA & 0xFF;	
-        tmpB = PINA & 0xFF;
+	tmpA = PINA & 0xFF;	
+        tmpB = PINB & 0xFF;
         tmpC = 0x00;
 
-        for (int i = 0x00; i < 8; i++) {
+        for (i = 0x00; i < 8; i++) {
             if ((tmpA >> i) & 0x01) {
                 tmpC++;
             }
