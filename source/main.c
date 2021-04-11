@@ -17,7 +17,6 @@ int main(void) {
 	DDRC = 0xFF; PORTC = 0x00; // Configure port C's 8 pins as outputs, initialize to 0s
 	unsigned char tmpA = 0x00;
 	unsigned char tmpC = 0x00;
-	unsigned char i = 0x00;
 
 	while(1) {
     	tmpA = PINA & 0x0F;
@@ -27,7 +26,7 @@ int main(void) {
             tmpC = tmpC | 0x3F; // PC5 - PC0
         }
         else if (tmpA >= 10) {  // 10 - 12
-            tmpC = tmpC | 0x1E; // PC5 - PC1
+            tmpC = tmpC | 0x3E; // PC5 - PC1
         }
         else if (tmpA >= 7) {   // 7 -9
             tmpC = tmpC | 0x3C; // PC5 - PC2
