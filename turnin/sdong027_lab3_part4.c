@@ -1,7 +1,7 @@
 /*	Author: sdong027
  *  Partner(s) Name: 
  *	Lab Section:
- *	Assignment: Lab #3  Exercise #5
+ *	Assignment: Lab #3  Exercise #4
  *	Exercise Description: [optional - include for your own benefit]
  *
  *	I acknowledge all content contained herein, excluding template or example
@@ -13,24 +13,23 @@
 #endif
 
 int main(void) {
-	DDRD = 0x00; PORTD = 0xFF;
-	DDRB = 0xFE; PORTB = 0x00; // ooo oooi 
-    unsigned short input = 0x00;
+	DDRA = 0x00; PORTA = 0xFF;
+	DDRB = 0xFF; PORTB = 0x00; 
+	DDRC = 0xFF; PORTC = 0x00; 
+	unsigned char tmpA = 0x00;
 	unsigned char tmpB = 0x00;
+    unsigned char tmpC = 0x00;
 
 	while(1) {
-    	input = PINA & 0xFF;
-        input = (input << 1) | (PINB & 0x01);
+    	tmpA = PINA & 0xFF;
         tmpB = 0x00;
+        tmpC = 0x00;
 
-        if (input >= 70) {
-            tmpB = 0x02;
-        }
-        else if (input > 5) {
-            tmpB = 0x04;
-        }
+        tmpB = tmpA >> 4;
+        tmpC = tmpA << 4;
 
         PORTB = tmpB;
+		PORTC = tmpC;
 	}
 	return 0;
 }
