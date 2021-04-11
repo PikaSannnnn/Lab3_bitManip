@@ -30,7 +30,7 @@ int main(void) {
             tmpB = 0x04;
         }
 
-        PORTB = tmpB;
+        PORTB = tmpB & 0xFE;
 	}
 	return 0;
 }

@@ -8,7 +8,7 @@ tests = [ {'description': 'No Passenger (0 lb)',
     },
     {'description': 'Passenger Airbag (127 lb)',
     'steps': [ {'inputs': [('PIND',0x3F), ('PINB',0x01)], 'iterations': 5 } ],
-    'expected': [('PORTB', 0x00)],
+    'expected': [('PORTB', 0x02)],
     },    
     ]
 #watch = ['PORTB']
