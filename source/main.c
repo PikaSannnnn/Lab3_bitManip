@@ -25,8 +25,8 @@ int main(void) {
         tmpB = 0x00;
         tmpC = 0x00;
 
-        tmpB = (tmpA & 0xF0) >> 4;
-        tmpC = (tmpA & 0x0F) << 4;
+        tmpB = tmpA >> 4;
+        tmpC = tmpA << 4;
 
         PORTB = tmpB;
 		PORTC = tmpC;
