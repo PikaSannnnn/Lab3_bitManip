@@ -19,7 +19,7 @@ int main(void) {
 	unsigned char tmpC = 0x00;
 
 	while(1) {
-    	tmpA = PINA & 0x0F;
+    	tmpA = PINA & 0xFF;
         tmpC = 0x00;
 
         // Seatbelt Light
