@@ -17,16 +17,20 @@ int main(void) {
 	DDRC = 0xFF; PORTC = 0x00; // Configure port C's 8 pins as outputs, initialize to 0s
 	unsigned char tmpA = 0x00;
 	unsigned char tmpC = 0x00;
+	unsigned char seat = 0x00;
 
 	while(1) {
     	tmpA = PINA & 0xFF;
         tmpC = 0x00;
+	seat = 0x00;
 
+	seat = tmpA & 0x70;
         // Seatbelt Light
-        if ((tmpA & 0x10) && (tmpA & 0x20) && !(tmpA & 0x40)) { // key && seated && seatbelt not fastened
-            tmpC = tmpC | 0x80;
-        }
+        if ((seat & 0x10) && (seat & 0x20) && !(seat & 0x40)) { // key && seated && seatbelt not fastened
+            tmpC = tmpC | 0x80;        
+	}
 
+	tmpA = tmpA & 0x0F;
         // Fuel Gauge
         if (tmpA >= 13) {   // 13 - 15
             tmpC = tmpC | 0x3F; // PC5 - PC0
